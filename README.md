@@ -1,54 +1,49 @@
-# 环境配置
+Environment configuration
+Recommended system: Ubuntu 20.04
 
-推荐系统 : Ubuntu 20.04
+python version: Python 3.*
 
-python版本 : Python 3.*
+Commands that need to be executed before running:
 
-运行前需要执行的命令:    
-```bash
-sudo apt-get update
-sudo apt-get install python3-dev -y
-sudo apt-get install screen -y
-pip3 install bs4 lxml web3
-```
+`sudo apt-get update`
 
-# 文件配置
+`sudo apt-get install python3-dev -y`
 
-20-25行 更换为自己的key，都是免费申请的
+`sudo apt-get install screen -y`
 
-27行 MAX_GAS_FEE 能接受的最大gas_fee
+`pip3 install bs4 lxml web3`
 
-28行 MAX_MINT_PER_NFT 最大的可mint数量，超过则跳过（不精准）
+file configuration
 
-30行 FOLLOW_ADDR_LIST 跟单mint地址，支持多个
+Lines 20-25 are replaced with your own key, which is free to apply
 
-31行 MAX_ETH_FOR_FOLLOW 跟单mint时能接受的最大价格（单位：ETH）
+Line 27 `MAX_GAS_FEE` The maximum `gas_fee` that can be accepted
 
-33行 blacklist 黑名单，当nft_name中包含这些字符则跳过
+28 lines `MAX_MINT_PER_NFT` The maximum number of mints that can be mint, if it exceeds, it will be skipped (inaccurate)
 
-# 功能
+30 lines of `FOLLOW_ADDR_LIST` follow the mint address, support multiple
 
-1. 通过 www.acnft.xyz 中的免费API获取freemint项目
+Line 31 `MAX_ETH_FOR_FOLLOW` The maximum price that can be accepted when copying mint (unit: ETH)
 
-2. 当交易卡住pending时自动取消交易（希望有用）
+33 lines of blacklist blacklist, skip when nft_name contains these characters
 
-3. 通过设置黑名单和minted日志中跳过一些仿盘和mint过的nft
+Function
 
-4. 范围内随机gasfee（可能某些项目会检测机器人？）
+Get the freemint project via the free API in www.acnft.xyz
 
-5. 通过TG机器人自动播报mint进度
+Automatically cancel transactions when they are stuck pending (hopefully useful)
 
-2022.5.31 更新
+Skip some imitation disks and mint nfts by setting a blacklist and minted logs
 
-6. 增加跟单mint模式 支持多个地址
+Random gasfee within range (maybe some projects detect bots?)
 
-# 运行
+Automatically broadcast mint progress through TG robot
 
-一切配置好后，登入你的服务器（推荐美区，mint时间平均在3秒之内完成，也可以使用自己的机器），输入```screen```打开一个新的终端保证在后台持续运行，然后输入 ```python3 free_mint_nft.py``` 开始运行，如果一切正常的话会和下面的图片一样提示 init success，然后就可以关掉了，下次打开服务器输入```screen -r```即可恢复到终端   
+2022.5.31 Update
+
+Added copy mint mode to support multiple addresses
+run
+After everything is configured, log in to your server (recommended US region, mint time is completed within 3 seconds on average, you can also use your own machine), enter screento open a new terminal to ensure continuous running in the background, and then enter python3 free_mint_nft.pyto start running, if If everything is normal, it will prompt init success like the picture below, and then it can be turned off. The next time the server is turned on, the input screen -rcan be restored to the terminal .
+
 
 ![image](https://github.com/jungleninja/nft-free-mint-bot/blob/main/1.png)
-
-# 其他
-
-discord Xinja#8947    
-Yu DAO 社区 [discord](https://discord.gg/bGqPbP8JTM "discord") 欢迎大家加入一起交流
